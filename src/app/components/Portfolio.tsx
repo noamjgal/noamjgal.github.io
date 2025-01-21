@@ -34,7 +34,7 @@ const Portfolio = () => {
       <nav className="bg-white shadow-lg">
         <div className="max-w-6xl mx-auto px-4 py-3">
           <div className="flex justify-between items-center">
-            <h1 className="text-xl font-bold">Noam Gal</h1>
+            <h1 className="text-xl font-bold">Noam J Gal</h1>
             <div className="flex space-x-4">
               <a href="#about" className="hover:text-blue-600">About</a>
               <a href="#projects" className="hover:text-blue-600">Projects</a>
@@ -46,7 +46,7 @@ const Portfolio = () => {
 
       <section className="bg-white">
         <div className="max-w-6xl mx-auto px-4 py-20">
-          <h1 className="text-4xl font-bold mb-4">Hi, I&apos;m Noam Gal</h1>
+          <h1 className="text-4xl font-bold mb-4">Hi, I&apos;m Noam</h1>
           <p className="text-xl text-gray-600 mb-8">
             Geospatial Data Scientist specializing in urban analytics and machine learning. 
             Currently working on smart city solutions at MIT City Science&apos;s Negev Urban Research Laboratory, 
@@ -152,7 +152,7 @@ const Portfolio = () => {
             <h3 className="text-2xl font-bold mt-8 mb-4">Skills</h3>
             <div className="flex flex-wrap gap-2">
               {['Python', 'JavaScript', 'SQL', 'React', 'Machine Learning', 'ETL Pipelines', 
-                'Spatial Analytics', 'Data Visualization', 'Docker', 'Git', 'PostgreSQL'].map((skill, index) => (
+                'Spatial Analytics', 'Data Visualization', 'Docker', 'Git'].map((skill, index) => (
                 <span key={index} className="bg-gray-200 px-3 py-1 rounded-full">
                   {skill}
                 </span>
@@ -164,7 +164,7 @@ const Portfolio = () => {
 
       <footer className="bg-gray-800 text-white py-8">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <p>© {new Date().getFullYear()} Noam Gal. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Noam J Gal. All rights reserved.</p>
         </div>
       </footer>
     </div>
