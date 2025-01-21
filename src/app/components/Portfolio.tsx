@@ -33,8 +33,8 @@ const Portfolio: React.FC = () => {
     {
       title: "Beer Sheva Innovation District Analysis",
       description: "Developed urban simulation models and interactive 3D visualizations for optimizing infrastructure planning, serving 50,000+ users of the Beer Sheva Innovation District.",
-      technologies: ["Python", "React", "deck.gl", "ETL"],
-      link: "https://github.com/noamjgal"
+      technologies: ["Python", "React", "JavaScript", "deck.gl", "ETL"],
+      link: "https://negevurbanresearch.github.io/dataviz_pages/"
     },
     {
       title: "Urban Vitality Laboratory Research",
@@ -46,13 +46,13 @@ const Portfolio: React.FC = () => {
       title: "Optimal Transport Neural Network",
       description: "Implemented an Input Convex Neural Network for probability density mapping, contributing to research presented at NeurIPS 2023.",
       technologies: ["PyTorch", "Python", "Machine Learning"],
-      link: "https://github.com/noamjgal"
+      link: "https://openreview.net/pdf?id=LXGhneskDs"
     },
     {
       title: "NYC Workforce Development Analytics",
       description: "Led analysis of municipal spending data and stakeholder surveys to create a comprehensive 4-year fiscal plan for over $300M in federal funds.",
       technologies: ["Data Analysis", "Policy Research", "Survey Analytics"],
-      link: "https://github.com/noamjgal"
+      link: "https://dol.ny.gov/system/files/documents/2023/09/nyc-local-plan-py-23-24-mod.pdf"
     }
   ];
 
@@ -83,8 +83,8 @@ const Portfolio: React.FC = () => {
       period: "June 2022 - August 2022",
       responsibilities: [
         "Coauthored paper on generative flow for conditional sampling via optimal transport, presented at NeurIPS 2023",
-        "Built an Input Convex Neural Network using PyTorch with custom loss function",
-        "Implemented novel optimization algorithms for distribution mapping"
+        "Built Input Convex Neural Networks using PyTorch with custom loss function to provide current state of the art results for distribution mapping",
+        "Implemented novel optimization algorithms for probability density mapping"
       ]
     },
     {
@@ -92,9 +92,9 @@ const Portfolio: React.FC = () => {
       company: "NYC Mayor's Office of Workforce Development",
       period: "September 2021 - May 2022",
       responsibilities: [
-        "Managed cross-departmental project to create 4-year fiscal plan for $300M+ federal funds",
-        "Analyzed workforce development spending data for regulatory compliance",
-        "Conducted and analyzed policy surveys to inform municipal spending decisions"
+        "Managed cross-departmental project to create data-driven insights for a 4-year fiscal plan to spend $300M+ federal funds",
+        "Analyzed workforce development spending data for regulatory compliance that were submitted to the New York State Department of Labor",
+        "Conducted and analyzed policy surveys to inform municipal and state policy, which were successfully used to obtain a spending cap waiver from the US Department of Labor"
       ]
     }
   ];
@@ -104,13 +104,13 @@ const Portfolio: React.FC = () => {
       school: "Hebrew University of Jerusalem",
       degree: "MA in Smart Cities and Urban Informatics",
       period: "Class of 2024",
-      achievements: ["Fulbright Scholar", "GPA: 3.95/4.0"]
+      achievements: ["Fulbright Scholar", "GPA: 96/100"]
     },
     {
       school: "Macaulay Honors College at Baruch College",
       degree: "BS in Mathematics",
       period: "Class of 2022",
-      achievements: ["GPA: 3.98/4.0", "Summa Cum Laude", "Presidential Scholar"]
+      achievements: ["GPA: 3.98/4.0", "Summa Cum Laude", "Portz Interdisciplinary Research Fellow"]
     }
   ];
 
@@ -118,15 +118,27 @@ const Portfolio: React.FC = () => {
     "Python",
     "JavaScript",
     "SQL",
-    "React",
-    "Machine Learning",
-    "ETL Pipelines",
+    "ML",
+    "Data Viz",
+    "ETL",
+    "GIS",
     "Spatial Analytics",
-    "Data Visualization",
-    "Docker",
+    "Remote Sensing",
     "Git",
+    "Docker",
+    "React",
     "PyTorch",
-    "TensorFlow"
+    "Geopandas",
+    "Pandas",
+    "Scikit-Learn",
+    "Hugging Face",
+    "Flask",
+    "Django",
+    "Next.js",
+    "Tailwind",
+    "PostgreSQL",
+    "PostGIS",
+    "QGIS"
   ];
 
   const themeClasses = {
@@ -172,7 +184,7 @@ const Portfolio: React.FC = () => {
           <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-6">
             <div className={`relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 ${themeClasses.border}`}>
               <Image
-                src="/profile.png"
+                src="/Hat-Pic.jpeg"
                 alt="Noam J Gal"
                 width={160}
                 height={160}
