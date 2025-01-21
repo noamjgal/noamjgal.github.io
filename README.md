@@ -2,7 +2,7 @@
 
 Personal portfolio website built with [Next.js](https://nextjs.org).
 
-🌐 **Live Site:** [https://noamjgal.github.io/portfolio_website](https://noamjgal.github.io/portfolio_website)
+🌐 **Live Site:** [https://noamjgal.github.io](https://noamjgal.github.io)
 
 ## Development
 
