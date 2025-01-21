@@ -1,8 +1,35 @@
-import React from 'react';
-import { Github, Linkedin, Mail } from 'lucide-react';
+"use client";
 
-const Portfolio = () => {
-  const projects = [
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { Github, Linkedin, Mail, Moon, Sun, Calendar, Building, GraduationCap, ExternalLink } from 'lucide-react';
+
+interface Project {
+  title: string;
+  description: string;
+  technologies: string[];
+  link: string;
+}
+
+const Portfolio: React.FC = () => {
+  const [darkMode, setDarkMode] = useState<boolean>(false);
+
+  const toggleDarkMode = () => {
+    setDarkMode(prev => {
+      const newMode = !prev;
+      localStorage.setItem('darkMode', String(newMode));
+      return newMode;
+    });
+  };
+
+  useEffect(() => {
+    const savedMode = localStorage.getItem('darkMode');
+    if (savedMode !== null) {
+      setDarkMode(savedMode === 'true');
+    }
+  }, []);
+
+  const projects: Project[] = [
     {
       title: "Beer Sheva Innovation District Analysis",
       description: "Developed urban simulation models and interactive 3D visualizations for optimizing infrastructure planning, serving 50,000+ users of the Beer Sheva Innovation District.",
@@ -29,65 +56,191 @@ const Portfolio = () => {
     }
   ];
 
+  const experiences = [
+    {
+      title: "Geospatial Data Scientist",
+      company: "Negev Urban Research (MIT City Science Lab)",
+      period: "July 2024 - Present",
+      responsibilities: [
+        "Developing urban simulation models for infrastructure planning optimization",
+        "Building ETL pipelines for urban mobility data analysis",
+        "Creating interactive 3D visualizations using React and deck.gl"
+      ]
+    },
+    {
+      title: "Research Scientist",
+      company: "Hebrew University of Jerusalem",
+      period: "January 2024 - July 2024",
+      responsibilities: [
+        "Led research on health and smart city environment interactions",
+        "Developed machine learning models for geospatial and physiological data",
+        "Collaborated with international research teams on urban health initiatives"
+      ]
+    },
+    {
+      title: "Machine Learning Research Assistant",
+      company: "Polymath Jr. (NSF REU)",
+      period: "June 2022 - August 2022",
+      responsibilities: [
+        "Coauthored paper on generative flow for conditional sampling via optimal transport, presented at NeurIPS 2023",
+        "Built an Input Convex Neural Network using PyTorch with custom loss function",
+        "Implemented novel optimization algorithms for distribution mapping"
+      ]
+    },
+    {
+      title: "Communications and Data Analysis Intern",
+      company: "NYC Mayor's Office of Workforce Development",
+      period: "September 2021 - May 2022",
+      responsibilities: [
+        "Managed cross-departmental project to create 4-year fiscal plan for $300M+ federal funds",
+        "Analyzed workforce development spending data for regulatory compliance",
+        "Conducted and analyzed policy surveys to inform municipal spending decisions"
+      ]
+    }
+  ];
+
+  const education = [
+    {
+      school: "Hebrew University of Jerusalem",
+      degree: "MA in Smart Cities and Urban Informatics",
+      period: "Class of 2024",
+      achievements: ["Fulbright Scholar", "GPA: 3.95/4.0"]
+    },
+    {
+      school: "Macaulay Honors College at Baruch College",
+      degree: "BS in Mathematics",
+      period: "Class of 2022",
+      achievements: ["GPA: 3.98/4.0", "Summa Cum Laude", "Presidential Scholar"]
+    }
+  ];
+
+  const skills = [
+    "Python",
+    "JavaScript",
+    "SQL",
+    "React",
+    "Machine Learning",
+    "ETL Pipelines",
+    "Spatial Analytics",
+    "Data Visualization",
+    "Docker",
+    "Git",
+    "PyTorch",
+    "TensorFlow"
+  ];
+
+  const themeClasses = {
+    background: darkMode ? 'bg-gray-900' : 'bg-gray-50',
+    text: darkMode ? 'text-gray-100' : 'text-gray-900',
+    secondaryText: darkMode ? 'text-gray-300' : 'text-gray-600',
+    card: darkMode ? 'bg-gray-800' : 'bg-white',
+    border: darkMode ? 'border-gray-700' : 'border-gray-200',
+    hover: darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100',
+    icon: darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-200 hover:bg-gray-300',
+    skill: darkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-600',
+    cardHover: darkMode ? 'hover:bg-gray-700/50' : 'hover:bg-gray-50',
+  };
+
   return (
-    <div className="min-h-screen bg-gray-100">
-      <nav className="bg-white shadow-lg">
-        <div className="max-w-6xl mx-auto px-4 py-3">
+    <div className={`min-h-screen ${themeClasses.background} ${themeClasses.text} transition-colors duration-200`}>
+      {/* Navigation */}
+      <nav className={`fixed top-0 w-full ${themeClasses.card}/90 backdrop-blur-md shadow-sm z-50`}>
+        <div className="max-w-5xl mx-auto px-4 py-3">
           <div className="flex justify-between items-center">
-            <h1 className="text-xl font-bold">Noam J Gal</h1>
-            <div className="flex space-x-4">
-              <a href="#about" className="hover:text-blue-600">About</a>
-              <a href="#projects" className="hover:text-blue-600">Projects</a>
-              <a href="#resume" className="hover:text-blue-600">Resume</a>
+            <h1 className="text-lg font-bold tracking-tight">Noam J Gal</h1>
+            <div className="flex items-center space-x-6">
+              <div className="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="#about" className="hover:text-blue-500 transition-colors">About</a>
+                <a href="#projects" className="hover:text-blue-500 transition-colors">Projects</a>
+                <a href="#resume" className="hover:text-blue-500 transition-colors">Resume</a>
+              </div>
+              <button
+                onClick={toggleDarkMode}
+                className={`p-2 rounded-full ${themeClasses.icon} transition-colors`}
+                aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+              >
+                {darkMode ? <Sun size={18} /> : <Moon size={18} />}
+              </button>
             </div>
           </div>
         </div>
       </nav>
 
-      <section className="bg-white">
-        <div className="max-w-6xl mx-auto px-4 py-20">
-          <h1 className="text-4xl font-bold mb-4">Hi, I&apos;m Noam</h1>
-          <p className="text-xl text-gray-600 mb-8">
-            Geospatial Data Scientist specializing in urban analytics and machine learning. 
-            Currently working on smart city solutions at MIT City Science&apos;s Negev Urban Research Laboratory, 
-            with a background in mathematics and urban informatics.
-          </p>
+      {/* Hero Section */}
+      <section className="pt-24 pb-16 px-4">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-6">
+            <div className={`relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 ${themeClasses.border}`}>
+              <Image
+                src="/profile.png"
+                alt="Noam J Gal"
+                width={160}
+                height={160}
+                className="object-cover"
+                priority
+              />
+            </div>
+            <div>
+              <h1 className="text-3xl md:text-4xl font-bold mb-4">Hi, I&apos;m Noam</h1>
+              <p className={`text-base md:text-lg mb-6 leading-relaxed max-w-2xl ${themeClasses.secondaryText}`}>
+                A Geospatial Data Scientist specializing in urban analytics and machine learning. 
+                Currently working on smart city solutions at MIT City Science&apos;s Negev Urban Research Laboratory.
+              </p>
+            </div>
+          </div>
           <div className="flex space-x-4">
-            <a href="https://github.com/noamjgal" className="p-2 hover:text-blue-600" target="_blank" rel="noopener noreferrer">
-              <Github size={24} />
-            </a>
-            <a href="https://www.linkedin.com/in/noam-gal/" className="p-2 hover:text-blue-600" target="_blank" rel="noopener noreferrer">
-              <Linkedin size={24} />
-            </a>
-            <a href="mailto:noamjgal@gmail.com" className="p-2 hover:text-blue-600">
-              <Mail size={24} />
-            </a>
+            {[
+              { icon: <Github size={20} />, href: "https://github.com/noamjgal", label: "GitHub" },
+              { icon: <Linkedin size={20} />, href: "https://www.linkedin.com/in/noam-gal/", label: "LinkedIn" },
+              { icon: <Mail size={20} />, href: "mailto:noamjgal@gmail.com", label: "Email" }
+            ].map((social, index) => (
+              <a
+                key={index}
+                href={social.href}
+                className={`p-2.5 rounded-full ${themeClasses.icon} transition-all duration-200 hover:scale-105`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.label}
+              >
+                {social.icon}
+              </a>
+            ))}
           </div>
         </div>
       </section>
 
-      <section id="projects" className="py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8">Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Projects Section */}
+      <section id="projects" className="py-16 px-4">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl font-bold mb-8">Featured Projects</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {projects.map((project, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md p-6">
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-gray-600 mb-4">{project.description}</p>
+              <div
+                key={index}
+                className={`${themeClasses.card} rounded-lg shadow-lg p-6 transition-all duration-200 hover:shadow-xl ${themeClasses.cardHover}`}
+              >
+                <h3 className="text-xl font-bold mb-3">{project.title}</h3>
+                <p className={`mb-4 text-sm leading-relaxed ${themeClasses.secondaryText}`}>
+                  {project.description}
+                </p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, techIndex) => (
-                    <span key={techIndex} className="bg-gray-200 px-3 py-1 rounded-full text-sm">
+                    <span
+                      key={techIndex}
+                      className={`px-2.5 py-1 rounded-full text-xs font-medium ${themeClasses.skill}`}
+                    >
                       {tech}
                     </span>
                   ))}
                 </div>
-                <a 
-                  href={project.link} 
-                  className="text-blue-600 hover:text-blue-800"
-                  target="_blank" 
+                <a
+                  href={project.link}
+                  className="inline-flex items-center text-blue-500 hover:text-blue-400 text-sm font-medium group"
+                  target="_blank"
                   rel="noopener noreferrer"
                 >
-                  View Project →
+                  View Project
+                  <ExternalLink className="ml-1 w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </a>
               </div>
             ))}
@@ -95,65 +248,75 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <section id="resume" className="bg-white py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8">Experience</h2>
-          <div className="prose max-w-none">
-            <div className="mb-6">
-              <h4 className="text-xl font-bold">Geospatial Data Scientist</h4>
-              <p className="text-gray-600">Negev Urban Research (MIT City Science Lab) • July 2024 - Present</p>
-              <ul className="list-disc pl-5">
-                <li>Developing urban simulation models for infrastructure planning optimization</li>
-                <li>Building ETL pipelines for urban mobility data analysis</li>
-                <li>Creating interactive 3D visualizations using React and deck.gl</li>
-              </ul>
-            </div>
+      {/* Experience Section */}
+      <section id="resume" className={`py-16 px-4 ${themeClasses.card}`}>
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl font-bold mb-8">Experience</h2>
+          <div className="space-y-8">
+            {experiences.map((exp, index) => (
+              <div key={index} className={`relative pl-6 ${themeClasses.cardHover} rounded-lg p-4 transition-all duration-200`}>
+                <div className="absolute left-0 top-0 h-full w-1 bg-blue-500 rounded-full" />
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                  <h4 className="text-lg font-bold">{exp.title}</h4>
+                  <div className={`flex items-center text-sm ${themeClasses.secondaryText}`}>
+                    <Building size={16} className="mr-2" />
+                    <span>{exp.company}</span>
+                  </div>
+                </div>
+                <div className={`flex items-center text-sm ${themeClasses.secondaryText} mb-3`}>
+                  <Calendar size={16} className="mr-2" />
+                  <span>{exp.period}</span>
+                </div>
+                <ul className={`space-y-2 text-sm ${themeClasses.secondaryText}`}>
+                  {exp.responsibilities.map((item, i) => (
+                    <li key={i} className="flex items-start">
+                      <span className="mr-2 mt-1.5 h-1 w-1 rounded-full bg-blue-500 flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
 
-            <div className="mb-6">
-              <h4 className="text-xl font-bold">Research Scientist</h4>
-              <p className="text-gray-600">Hebrew University of Jerusalem • January 2024 - July 2024</p>
-              <ul className="list-disc pl-5">
-                <li>Led research on health and smart city environment interactions</li>
-                <li>Developed machine learning models for geospatial and physiological data</li>
-              </ul>
+          {/* Education Section */}
+          <div className="mt-12">
+            <h2 className="text-2xl font-bold mb-8">Education</h2>
+            <div className="space-y-6">
+              {education.map((edu, index) => (
+                <div key={index} className={`${themeClasses.cardHover} rounded-lg p-4 transition-all duration-200`}>
+                  <div className="flex items-start space-x-3">
+                    <GraduationCap size={24} className="text-blue-500 flex-shrink-0 mt-1" />
+                    <div>
+                      <h3 className="text-lg font-bold">{edu.school}</h3>
+                      <p className={`text-sm ${themeClasses.secondaryText} mb-2`}>{edu.degree}</p>
+                      <p className={`text-sm ${themeClasses.secondaryText} mb-2`}>{edu.period}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {edu.achievements.map((achievement, i) => (
+                          <span
+                            key={i}
+                            className={`text-xs px-2 py-1 rounded-full ${themeClasses.skill}`}
+                          >
+                            {achievement}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
+          </div>
 
-            <div className="mb-6">
-              <h4 className="text-xl font-bold">Machine Learning Research Assistant</h4>
-              <p className="text-gray-600">Polymath Jr. (NSF REU) • June 2022 - August 2022</p>
-              <ul className="list-disc pl-5">
-                <li>Coauthored paper on generative flow for conditional sampling via optimal transport, presented at NeurIPS 2023</li>
-                <li>Built an Input Convex Neural Network using PyTorch with custom loss function for optimal distribution mapping</li>
-              </ul>
-            </div>
-
-            <div className="mb-6">
-              <h4 className="text-xl font-bold">Communications and Data Analysis Intern</h4>
-              <p className="text-gray-600">NYC Mayor&apos;s Office of Workforce Development • September 2021 - May 2022</p>
-              <ul className="list-disc pl-5">
-                <li>Managed cross-departmental project to create 4-year fiscal plan for $300M+ federal funds</li>
-                <li>Analyzed workforce development spending data for regulatory compliance</li>
-                <li>Conducted and analyzed policy surveys to inform municipal spending decisions</li>
-              </ul>
-            </div>
-
-            <h3 className="text-2xl font-bold mt-8 mb-4">Education</h3>
-            <div className="mb-6">
-              <h4 className="text-xl font-bold">Hebrew University of Jerusalem</h4>
-              <p className="text-gray-600">MA in Smart Cities and Urban Informatics • Class of 2024</p>
-              <p className="text-gray-600">Fulbright Scholar</p>
-            </div>
-            <div className="mb-6">
-              <h4 className="text-xl font-bold">Macaulay Honors College at Baruch College</h4>
-              <p className="text-gray-600">BS in Mathematics • Class of 2022</p>
-              <p className="text-gray-600">GPA: 3.98/4.0 • Summa Cum Laude</p>
-            </div>
-
-            <h3 className="text-2xl font-bold mt-8 mb-4">Skills</h3>
+          {/* Skills Section */}
+          <div className="mt-12">
+            <h3 className="text-xl font-bold mb-6">Skills</h3>
             <div className="flex flex-wrap gap-2">
-              {['Python', 'JavaScript', 'SQL', 'React', 'Machine Learning', 'ETL Pipelines', 
-                'Spatial Analytics', 'Data Visualization', 'Docker', 'Git'].map((skill, index) => (
-                <span key={index} className="bg-gray-200 px-3 py-1 rounded-full">
+              {skills.map((skill, index) => (
+                <span 
+                  key={index} 
+                  className={`px-3 py-1.5 rounded-full text-sm font-medium ${themeClasses.skill} transition-colors`}
+                >
                   {skill}
                 </span>
               ))}
@@ -162,9 +325,12 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <footer className="bg-gray-800 text-white py-8">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <p>© {new Date().getFullYear()} Noam J Gal. All rights reserved.</p>
+      {/* Footer */}
+      <footer className={`${themeClasses.card} py-6 border-t ${themeClasses.border}`}>
+        <div className="max-w-5xl mx-auto px-4 text-center text-sm">
+          <p className={`font-medium ${themeClasses.secondaryText}`}>
+            © {new Date().getFullYear()} Noam J Gal. All rights reserved.
+          </p>
         </div>
       </footer>
     </div>
