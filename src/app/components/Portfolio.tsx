@@ -30,67 +30,60 @@ const Portfolio = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      <nav className="bg-white shadow-md border-b border-slate-200">
-        <div className="max-w-6xl mx-auto px-4 py-4">
+    <div className="min-h-screen bg-gray-100">
+      <nav className="bg-white shadow-lg">
+        <div className="max-w-6xl mx-auto px-4 py-3">
           <div className="flex justify-between items-center">
-            <h1 className="text-xl font-bold text-slate-800">Noam Gal</h1>
-            <div className="flex space-x-6">
-              <a href="#about" className="text-slate-600 hover:text-blue-600 font-medium">About</a>
-              <a href="#projects" className="text-slate-600 hover:text-blue-600 font-medium">Projects</a>
-              <a href="#resume" className="text-slate-600 hover:text-blue-600 font-medium">Resume</a>
+            <h1 className="text-xl font-bold">Noam Gal</h1>
+            <div className="flex space-x-4">
+              <a href="#about" className="hover:text-blue-600">About</a>
+              <a href="#projects" className="hover:text-blue-600">Projects</a>
+              <a href="#resume" className="hover:text-blue-600">Resume</a>
             </div>
           </div>
         </div>
       </nav>
 
-      <section className="bg-white border-b border-slate-200">
-        <div className="max-w-6xl mx-auto px-4 py-24">
-          <h1 className="text-5xl font-bold mb-6 text-slate-800">Hi, I'm Noam Gal</h1>
-          <p className="text-xl text-slate-700 mb-8 max-w-3xl">
+      <section className="bg-white">
+        <div className="max-w-6xl mx-auto px-4 py-20">
+          <h1 className="text-4xl font-bold mb-4">Hi, I&apos;m Noam Gal</h1>
+          <p className="text-xl text-gray-600 mb-8">
             Geospatial Data Scientist specializing in urban analytics and machine learning. 
-            Currently working on smart city solutions at MIT City Science's Negev Urban Research Laboratory, 
+            Currently working on smart city solutions at MIT City Science&apos;s Negev Urban Research Laboratory, 
             with a background in mathematics and urban informatics.
           </p>
           <div className="flex space-x-4">
-            <a href="https://github.com/noamjgal" 
-               className="p-2 text-slate-600 hover:text-blue-600 transition-colors" 
-               target="_blank" 
-               rel="noopener noreferrer">
-              <Github size={28} />
+            <a href="https://github.com/noamjgal" className="p-2 hover:text-blue-600" target="_blank" rel="noopener noreferrer">
+              <Github size={24} />
             </a>
-            <a href="https://www.linkedin.com/in/noam-gal/" 
-               className="p-2 text-slate-600 hover:text-blue-600 transition-colors" 
-               target="_blank" 
-               rel="noopener noreferrer">
-              <Linkedin size={28} />
+            <a href="https://www.linkedin.com/in/noam-gal/" className="p-2 hover:text-blue-600" target="_blank" rel="noopener noreferrer">
+              <Linkedin size={24} />
             </a>
-            <a href="mailto:noamjgal@gmail.com" 
-               className="p-2 text-slate-600 hover:text-blue-600 transition-colors">
-              <Mail size={28} />
+            <a href="mailto:noamjgal@gmail.com" className="p-2 hover:text-blue-600">
+              <Mail size={24} />
             </a>
           </div>
         </div>
       </section>
 
-      <section id="projects" className="py-24">
+      <section id="projects" className="py-20">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-slate-800">Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+          <h2 className="text-3xl font-bold mb-8">Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-md p-8 border border-slate-200 hover:shadow-lg transition-shadow">
-                <h3 className="text-xl font-bold mb-3 text-slate-800">{project.title}</h3>
-                <p className="text-slate-600 mb-6 leading-relaxed">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-6">
+              <div key={index} className="bg-white rounded-lg shadow-md p-6">
+                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                <p className="text-gray-600 mb-4">{project.description}</p>
+                <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, techIndex) => (
-                    <span key={techIndex} className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
+                    <span key={techIndex} className="bg-gray-200 px-3 py-1 rounded-full text-sm">
                       {tech}
                     </span>
                   ))}
                 </div>
                 <a 
                   href={project.link} 
-                  className="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center"
+                  className="text-blue-600 hover:text-blue-800"
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
@@ -102,66 +95,65 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <section id="resume" className="bg-white py-24 border-t border-slate-200">
+      <section id="resume" className="bg-white py-20">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-slate-800">Experience</h2>
+          <h2 className="text-3xl font-bold mb-8">Experience</h2>
           <div className="prose max-w-none">
-            <div className="mb-12">
-              <h4 className="text-xl font-bold text-slate-800">Geospatial Data Scientist</h4>
-              <p className="text-slate-600 mb-4">Negev Urban Research (MIT City Science Lab) • July 2024 - Present</p>
-              <ul className="list-disc pl-5 text-slate-600">
-                <li className="mb-2">Developing urban simulation models for infrastructure planning optimization</li>
-                <li className="mb-2">Building ETL pipelines for urban mobility data analysis</li>
-                <li className="mb-2">Creating interactive 3D visualizations using React and deck.gl</li>
+            <div className="mb-6">
+              <h4 className="text-xl font-bold">Geospatial Data Scientist</h4>
+              <p className="text-gray-600">Negev Urban Research (MIT City Science Lab) • July 2024 - Present</p>
+              <ul className="list-disc pl-5">
+                <li>Developing urban simulation models for infrastructure planning optimization</li>
+                <li>Building ETL pipelines for urban mobility data analysis</li>
+                <li>Creating interactive 3D visualizations using React and deck.gl</li>
               </ul>
             </div>
 
-            <div className="mb-12">
-              <h4 className="text-xl font-bold text-slate-800">Research Scientist</h4>
-              <p className="text-slate-600 mb-4">Hebrew University of Jerusalem • January 2024 - July 2024</p>
-              <ul className="list-disc pl-5 text-slate-600">
-                <li className="mb-2">Led research on health and smart city environment interactions</li>
-                <li className="mb-2">Developed machine learning models for geospatial and physiological data</li>
+            <div className="mb-6">
+              <h4 className="text-xl font-bold">Research Scientist</h4>
+              <p className="text-gray-600">Hebrew University of Jerusalem • January 2024 - July 2024</p>
+              <ul className="list-disc pl-5">
+                <li>Led research on health and smart city environment interactions</li>
+                <li>Developed machine learning models for geospatial and physiological data</li>
               </ul>
             </div>
 
-            <div className="mb-12">
-              <h4 className="text-xl font-bold text-slate-800">Machine Learning Research Assistant</h4>
-              <p className="text-slate-600 mb-4">Polymath Jr. (NSF REU) • June 2022 - August 2022</p>
-              <ul className="list-disc pl-5 text-slate-600">
-                <li className="mb-2">Coauthored paper on generative flow for conditional sampling via optimal transport, presented at NeurIPS 2023</li>
-                <li className="mb-2">Built an Input Convex Neural Network using PyTorch with custom loss function for optimal distribution mapping</li>
+            <div className="mb-6">
+              <h4 className="text-xl font-bold">Machine Learning Research Assistant</h4>
+              <p className="text-gray-600">Polymath Jr. (NSF REU) • June 2022 - August 2022</p>
+              <ul className="list-disc pl-5">
+                <li>Coauthored paper on generative flow for conditional sampling via optimal transport, presented at NeurIPS 2023</li>
+                <li>Built an Input Convex Neural Network using PyTorch with custom loss function for optimal distribution mapping</li>
               </ul>
             </div>
 
-            <div className="mb-12">
-              <h4 className="text-xl font-bold text-slate-800">Communications and Data Analysis Intern</h4>
-              <p className="text-slate-600 mb-4">NYC Mayor's Office of Workforce Development • September 2021 - May 2022</p>
-              <ul className="list-disc pl-5 text-slate-600">
-                <li className="mb-2">Managed cross-departmental project to create 4-year fiscal plan for $300M+ federal funds</li>
-                <li className="mb-2">Analyzed workforce development spending data for regulatory compliance</li>
-                <li className="mb-2">Conducted and analyzed policy surveys to inform municipal spending decisions</li>
+            <div className="mb-6">
+              <h4 className="text-xl font-bold">Communications and Data Analysis Intern</h4>
+              <p className="text-gray-600">NYC Mayor&apos;s Office of Workforce Development • September 2021 - May 2022</p>
+              <ul className="list-disc pl-5">
+                <li>Managed cross-departmental project to create 4-year fiscal plan for $300M+ federal funds</li>
+                <li>Analyzed workforce development spending data for regulatory compliance</li>
+                <li>Conducted and analyzed policy surveys to inform municipal spending decisions</li>
               </ul>
             </div>
 
-            <h3 className="text-2xl font-bold mb-8 text-slate-800">Education</h3>
-            <div className="mb-8">
-              <h4 className="text-xl font-bold text-slate-800">Hebrew University of Jerusalem</h4>
-              <p className="text-slate-600">MA in Smart Cities and Urban Informatics • Class of 2024</p>
-              <p className="text-blue-600 font-medium">Fulbright Scholar</p>
+            <h3 className="text-2xl font-bold mt-8 mb-4">Education</h3>
+            <div className="mb-6">
+              <h4 className="text-xl font-bold">Hebrew University of Jerusalem</h4>
+              <p className="text-gray-600">MA in Smart Cities and Urban Informatics • Class of 2024</p>
+              <p className="text-gray-600">Fulbright Scholar</p>
+            </div>
+            <div className="mb-6">
+              <h4 className="text-xl font-bold">Macaulay Honors College at Baruch College</h4>
+              <p className="text-gray-600">BS in Mathematics • Class of 2022</p>
+              <p className="text-gray-600">GPA: 3.98/4.0 • Summa Cum Laude</p>
             </div>
 
-            <div className="mb-12">
-              <h4 className="text-xl font-bold text-slate-800">Macaulay Honors College at Baruch College</h4>
-              <p className="text-slate-600">BS in Mathematics • Class of 2022</p>
-              <p className="text-blue-600 font-medium">GPA: 3.98/4.0 • Summa Cum Laude</p>
-            </div>
-
-            <h3 className="text-2xl font-bold mb-8 text-slate-800">Skills</h3>
-            <div className="flex flex-wrap gap-3">
+            <h3 className="text-2xl font-bold mt-8 mb-4">Skills</h3>
+            <div className="flex flex-wrap gap-2">
               {['Python', 'JavaScript', 'SQL', 'React', 'Machine Learning', 'ETL Pipelines', 
                 'Spatial Analytics', 'Data Visualization', 'Docker', 'Git', 'PostgreSQL'].map((skill, index) => (
-                <span key={index} className="bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium">
+                <span key={index} className="bg-gray-200 px-3 py-1 rounded-full">
                   {skill}
                 </span>
               ))}
@@ -170,7 +162,7 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <footer className="bg-slate-900 text-slate-200 py-12">
+      <footer className="bg-gray-800 text-white py-8">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <p>© {new Date().getFullYear()} Noam Gal. All rights reserved.</p>
         </div>
