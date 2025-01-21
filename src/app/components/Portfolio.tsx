@@ -143,7 +143,6 @@ const Portfolio: React.FC = () => {
     "Scikit-Learn",
     "Hugging Face",
     "Flask",
-    "Django",
     "Next.js",
     "Tailwind",
     "PostgreSQL",
