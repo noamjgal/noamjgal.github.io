@@ -68,13 +68,23 @@ const Portfolio: React.FC = () => {
       ]
     },
     {
+      title: "Teaching Assistant",
+      company: "Hebrew University of Jerusalem",
+      period: "October 2024 - Present",
+      responsibilities: [
+        "Teaching spatial statistics exercises to MA students in the Smart Cities & Urban Informatics program",
+        "Covering advanced topics including spatial autocorrelation, spatial autoregressive models (SAR), and spatial error models (SEM)",
+        "Providing hands-on guidance in Python to implement spatial analysis techniques and statistical modeling"
+      ]
+    },
+    {
       title: "Research Scientist",
       company: "Hebrew University of Jerusalem",
       period: "January 2024 - July 2024",
       responsibilities: [
-        "Led research on health and smart city environment interactions",
-        "Developed machine learning models for geospatial and physiological data",
-        "Collaborated with international research teams on urban health initiatives"
+        "Designed ETL pipelines for geospatial, physiological, and digital usage data collected by studies in the Urban Vitality Laboratory",
+        "Developed machine learning classification model for physiological data",
+        "Collaborated with an international team of scholars from the Hebrew University of Jerusalem, Sorbonne University, and the University of Salzburg to analyze the spatial components of stress in urban environments"
       ]
     },
     {
