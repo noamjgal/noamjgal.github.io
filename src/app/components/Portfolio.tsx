@@ -40,7 +40,7 @@ const Portfolio: React.FC = () => {
       title: "Urban Vitality Laboratory Research",
       description: "Built ETL pipeline and supervised learning models for analyzing geospatial, physiological, and digital usage data in smart city environments.",
       technologies: ["Scikit-Learn", "Data Science", "SQL", "Geospatial Analytics"],
-      link: "https://github.com/noamjgal"
+      link: "https://github.com/noamjgal/Surreal-Fragmentation"
     },
     {
       title: "Optimal Transport Neural Network",
