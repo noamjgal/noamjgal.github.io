@@ -39,19 +39,19 @@ const Portfolio: React.FC = () => {
     {
       title: "Urban Vitality Laboratory Research",
       description: "Built ETL pipeline and supervised learning models for analyzing geospatial, physiological, and digital usage data in smart city environments.",
-      technologies: ["Python", "Machine Learning", "Spatial Analytics"],
+      technologies: ["Scikit-Learn", "Data Science", "SQL", "Geospatial Analytics"],
       link: "https://github.com/noamjgal"
     },
     {
       title: "Optimal Transport Neural Network",
       description: "Implemented an Input Convex Neural Network for probability density mapping, contributing to research presented at NeurIPS 2023.",
-      technologies: ["PyTorch", "Python", "Machine Learning"],
+      technologies: ["PyTorch", "Python", "Neural Networks", "Mathematics"],
       link: "https://openreview.net/pdf?id=LXGhneskDs"
     },
     {
       title: "NYC Workforce Development Analytics",
       description: "Led analysis of municipal spending data and stakeholder surveys to create a comprehensive 4-year fiscal plan for over $300M in federal funds.",
-      technologies: ["Data Analysis", "Policy Research", "Survey Analytics"],
+      technologies: ["Pandas", "SQL", "Data Analysis", "Policy Research", "Survey Analytics"],
       link: "https://dol.ny.gov/system/files/documents/2023/09/nyc-local-plan-py-23-24-mod.pdf"
     }
   ];
