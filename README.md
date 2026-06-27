@@ -1,27 +1,27 @@
-# Portfolio Website
+# Noam J. Gal — Academic Website
 
-Personal portfolio website built with [Next.js](https://nextjs.org).
+Personal academic website built with the [Academic Pages](https://github.com/academicpages/academicpages.github.io) Jekyll template.
 
-🌐 **Live Site:** [https://noamjgal.com](https://noamjgal.com)
+Live at [noamjgal.com](https://noamjgal.com).
 
-## Development
+## Local development
+
+Homebrew Ruby must be on your `PATH` (macOS ships with Ruby 2.6, which will not work). Use Ruby 3.2:
 
 ```bash
-# Install dependencies
-npm install
-
-# Run development server
-npm run dev
+export PATH="/opt/homebrew/opt/ruby@3.2/bin:$PATH"
+bundle install
+bundle exec jekyll serve -l -H localhost
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the site.
+If you haven't installed it yet: `brew install ruby@3.2`
 
-## Tech Stack
-- Next.js 14
-- TypeScript
-- Tailwind CSS
+Open [http://localhost:4000](http://localhost:4000).
 
-## Deployment
-Automatically deploys to GitHub Pages via GitHub Actions when pushing to main branch.
+## Content
 
-© 2024 Noam Gal
+* `_config.yml` — site and author settings
+* `_pages/about.md` — homepage
+* `_publications/`, `_talks/`, `_portfolio/`, `_teaching/` — collection content
+* `_pages/cv.md` — CV page
+* `files/noam-gal-cv.pdf` — downloadable CV
