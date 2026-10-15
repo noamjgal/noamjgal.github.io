@@ -24,22 +24,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Maintenance mode: deploys only maintenance/ until the Jekyll build is restored below.
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Build with Jekyll
+        run: bundle exec jekyll build --baseurl ""
+
       - name: Configure Pages
         uses: actions/configure-pages@v4
 
-      - name: Upload maintenance page
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./maintenance
+          path: ./_site
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-      # To relaunch the full site, replace the upload step above with:
-      # - uses: ruby/setup-ruby@v1
-      #   with: { ruby-version: '3.2', bundler-cache: true }
-      # - run: bundle exec jekyll build --baseurl ""
-      # - uses: actions/upload-pages-artifact@v3
-      #   with: { path: ./_site }
