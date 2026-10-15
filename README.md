@@ -24,4 +24,3 @@ Open [http://localhost:4000](http://localhost:4000).
 * `_pages/about.md` — homepage
 * `_publications/`, `_talks/`, `_portfolio/`, `_teaching/` — collection content
 * `_pages/cv.md` — CV page
-* `files/noam-gal-cv.pdf` — downloadable CV

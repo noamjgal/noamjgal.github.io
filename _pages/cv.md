@@ -9,8 +9,6 @@ redirect_from:
 
 {% include base_path %}
 
-[Download CV (PDF)](/files/noam-gal-cv.pdf)
-
 Education
 ======
 * Ph.D. Candidate, Stage A, Geoinformatics Track, Hebrew University of Jerusalem, 2025–Present
