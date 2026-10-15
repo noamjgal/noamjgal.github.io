@@ -5,11 +5,11 @@ type: "Graduate teaching"
 permalink: /teaching/2024-spatial-science-ta
 venue: "Hebrew University of Jerusalem"
 date: 2024-10-01
-date_display: "October 2024 – July 2026"
+date_display: "October 2024 – January 2026"
 location: "Jerusalem, Israel"
 ---
 
-Graduate Teaching Assistant, Department of Spatial Science, October 2024 – July 2026.
+Graduate Teaching Assistant, Department of Spatial Science, October 2024 – January 2026.
 
 **Foundations of Spatial Statistics (40733)**
 Spring 2024–2025
