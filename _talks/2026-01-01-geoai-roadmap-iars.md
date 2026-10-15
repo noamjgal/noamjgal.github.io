@@ -5,7 +5,6 @@ type: "Conference presentation"
 permalink: /talks/2026-01-01-geoai-roadmap-iars
 venue: "Annual Conference of the Israeli Association for Regional Science"
 date: 2026-01-01
-location: "Be'er Sheva, Israel"
+date_display: "2026"
+location: "Be'er Sheva, Israel, Ben-Gurion University"
 ---
-
-Presentation on definitions, directions, and key challenges in geospatial artificial intelligence.
